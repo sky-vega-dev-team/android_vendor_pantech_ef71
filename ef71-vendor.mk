@@ -838,3 +838,11 @@ PRODUCT_COPY_FILES += \
     vendor/pantech/ef71/proprietary/vendor/lib64/libmmcamera_dbg.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libmmcamera_dbg.so \
     vendor/pantech/ef71/proprietary/vendor/lib64/libsensor1.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libsensor1.so \
     vendor/pantech/ef71/proprietary/vendor/lib64/libsensor_reg.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libsensor_reg.so
+
+# Sensors: sensors.qti and libsensor1 from LA.UM.9.6.3, the SSC sensors HAL
+# and libsensor_reg from daisy, as Mi-Thorium Mi8937 uses them. The msm-3.18
+# era sensors.qti cannot open the registry on Android 12, and the ADSP sensor
+# manager waits for the registry before it brings any sensor up.
+PRODUCT_COPY_FILES += \
+    vendor/pantech/ef71/proprietary/vendor/bin/sensors.qti:$(TARGET_COPY_OUT_VENDOR)/bin/sensors.qti \
+    vendor/pantech/ef71/proprietary/vendor/lib64/sensors.ssc.so:$(TARGET_COPY_OUT_VENDOR)/lib64/sensors.ssc.so
