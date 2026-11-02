@@ -633,3 +633,19 @@ endif
 
 # Adreno and display blobs (LA.UM.9.6.3.r1-06200-89xx.0)
 $(call inherit-product, vendor/pantech/ef71/graphics/graphics-vendor.mk)
+
+# EF71 specific firmware: GPU microcode as Mi-Thorium msm-4.19 ships it
+# (the msm-3.18 a530_pfp.fw left the CP stuck on msm-4.19), NFC and the
+# Widevine TA signed for the Pantech TZ, from the LineageOS 17.1 tree
+PRODUCT_COPY_FILES += \
+    vendor/pantech/ef71/proprietary/vendor/firmware/a530_pm4.fw:$(TARGET_COPY_OUT_VENDOR)/firmware/a530_pm4.fw \
+    vendor/pantech/ef71/proprietary/vendor/firmware/a530_pfp.fw:$(TARGET_COPY_OUT_VENDOR)/firmware/a530_pfp.fw \
+    vendor/pantech/ef71/proprietary/vendor/firmware/libpn548ad_fw.so:$(TARGET_COPY_OUT_VENDOR)/firmware/libpn548ad_fw.so \
+    vendor/pantech/ef71/proprietary/vendor/firmware/widevine.mdt:$(TARGET_COPY_OUT_VENDOR)/firmware/widevine.mdt \
+    vendor/pantech/ef71/proprietary/vendor/firmware/widevine.b00:$(TARGET_COPY_OUT_VENDOR)/firmware/widevine.b00 \
+    vendor/pantech/ef71/proprietary/vendor/firmware/widevine.b01:$(TARGET_COPY_OUT_VENDOR)/firmware/widevine.b01 \
+    vendor/pantech/ef71/proprietary/vendor/firmware/widevine.b02:$(TARGET_COPY_OUT_VENDOR)/firmware/widevine.b02 \
+    vendor/pantech/ef71/proprietary/vendor/firmware/widevine.b03:$(TARGET_COPY_OUT_VENDOR)/firmware/widevine.b03 \
+    vendor/pantech/ef71/proprietary/vendor/firmware/widevine.b04:$(TARGET_COPY_OUT_VENDOR)/firmware/widevine.b04 \
+    vendor/pantech/ef71/proprietary/vendor/firmware/widevine.b05:$(TARGET_COPY_OUT_VENDOR)/firmware/widevine.b05 \
+    vendor/pantech/ef71/proprietary/vendor/firmware/widevine.b06:$(TARGET_COPY_OUT_VENDOR)/firmware/widevine.b06
